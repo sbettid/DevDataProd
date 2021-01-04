@@ -1,0 +1,29 @@
+#title{
+	text-align: center;
+	color: #427cfa;
+	font-size: 3em;
+}
+
+#desc{
+	text-align: center;
+	font-size: 2em;
+	font-weight: italic;
+}
+
+#content{
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+}
+
+#check{
+	width: 10%;
+	margin: 2% auto 0 auto;
+	font-size: 1.5em;
+	background-color: #ff5733;
+	color: white;
+}
+
+#post{
+	margin:auto;
+}

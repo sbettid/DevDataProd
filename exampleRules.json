@@ -1,0 +1,25 @@
+{
+	"classification": [
+		{
+			"test" : {
+				"_all" : "Test post"
+			},
+			"_all" : "Not Hate post"
+		},
+		{
+			"_all" : "Racist post"
+		},
+		{
+			"_all" : "Sexist post"
+		},
+		{
+			"_all" : "Homophobe post"
+		},
+		{
+			"_all" : "Religion hate post"
+		},
+		{
+			"_all" : "Other Hate post"
+		}
+	]
+}

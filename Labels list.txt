@@ -1,0 +1,8 @@
+Labels Hate Speech dataset:
+
+	0 -> NotHate
+	1 -> Racist
+	2 -> Sexist
+	3 -> Homophobe
+	4 -> Religion
+	5 -> OtherHate

@@ -1,0 +1,48 @@
+<html lang="en">
+	<head>
+		<title>14032 - POC Web Interface</title>
+		 <meta name="viewport" content="width=device-width,initial-scale=1">
+		 <meta charset="UTF-8">
+		 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+		 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<div id="content">
+
+			<h1 id="title">Davide Sbetti 14032 - POC</h1>
+
+			<p id="desc">
+				Enter the text of a post and check which category is assigned to it by our machine learning model. Moreover, you can see the possible answer returned by the "answering module".
+			</p>
+			
+			<textarea id="post" name="post" rows="5" cols="50"></textarea>
+			
+			<br>
+
+			<button id="check">Check</button>
+
+		</div>
+
+		<div id="history">
+		</div>
+
+		<script type="text/javascript">
+			$(function() {
+	          $('#check').on('click', function(e) {
+
+	            $.ajax({
+		            type: "POST",
+		            url: '/check_post',
+		            data: {'test':'selected_index'},
+		            success: function(response){
+		                console.log(response);
+		            }
+        		});
+	            return false;
+	          });
+        });
+		</script>
+
+	</body>
+</html>
