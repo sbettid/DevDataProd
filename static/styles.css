@@ -13,7 +13,7 @@
 #content{
 	display: flex;
 	flex-direction: column;
-    justify-content: center;
+    justify-content: center;  
 }
 
 #check{
@@ -26,4 +26,38 @@
 
 #post{
 	margin:auto;
+}
+
+#history{
+	overflow-y: auto; 
+}
+
+.result_row_header{
+	margin-top: 2%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post_text_header, .classification_header, .answer_header{
+	justify-content: center;
+	flex-basis: 33%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+
+.result_row{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post_text, .classification, .answer{
+	justify-content: center;
+	flex-basis: 33%;
+	text-align: center;
 }

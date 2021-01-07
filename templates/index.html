@@ -22,21 +22,40 @@
 
 			<button id="check">Check</button>
 
+			<div class="result_row_header">
+					<div class="post_text_header">
+						POST TEXT
+					</div>
+
+					<div class="classification_header">
+						CLASSIFICATION RESULT
+					</div>
+
+					<div class="answer_header">
+						POSSIBLE ANSWER
+					</div>
+				</div>
+			<div id="history" style="height: auto;">
+
+				
+			</div>
+
 		</div>
 
-		<div id="history">
-		</div>
+		
 
 		<script type="text/javascript">
 			$(function() {
 	          $('#check').on('click', function(e) {
 
+	          	post_content = $("#post").val();
 	            $.ajax({
 		            type: "POST",
 		            url: '/check_post',
-		            data: {'test':'selected_index'},
+		            data: {'post': post_content},
 		            success: function(response){
 		                console.log(response);
+		                $("#history").prepend("<div class=\"result_row\"><div class=\"post_text\">"+ post_content +"</div><div class=\"classification\">CLASSIFICATION RESULT</div><div class=\"answer\">POSSIBLE ANSWER</div></div>");
 		            }
         		});
 	            return false;
