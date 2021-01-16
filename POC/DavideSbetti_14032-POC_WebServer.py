@@ -15,7 +15,11 @@ def hello():
 def check_post():
 	text = request.form["post"]
 	classification = myModel.classifyPost(text)
-	return jsonify(classification)
+	if classification > 0:
+		answer = am.answerPost(text, classification)
+		return jsonify(classification=classification, answer=answer)
+	else:	
+		return jsonify(classification=classification)
 
 if __name__ == "__main__":
     app.run()

@@ -1,0 +1,110 @@
+<html lang="en">
+	<head>
+		<title>14032 - POC Web Interface</title>
+		 <meta name="viewport" content="width=device-width,initial-scale=1">
+		 <meta charset="UTF-8">
+		 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+		 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<div id="content">
+
+			<h1 id="title">Smart Text Content Moderation</h1>
+
+			<p id="desc">
+				Enter the text of a post and check which category is assigned to it by our machine learning model. Moreover, you can see the possible answer returned by the "answering module". <br> <br>
+				Do you need some ideas? Open our <button id="myBtn">Example posts</button> 
+			</p>
+			
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			  <!-- Modal content -->
+			  <div class="modal-content">
+			    <span class="close">&times;</span>
+			    <h3>Example posts</h3>
+			    <p>Below you can find a list of real hate speech post (tweets in this case) you can use to test the abilities of the model, along with the correct post classification reported in brackets.</p>
+			    <ul>
+			    	<li>Fuck you nigger Yeah I did it now martyr me https://t.co/EXLSPeh4wM (Racist)</li>
+			    	<li>@rickygervais A direct quote from @realDonaldTrump  "A good goat with a gun will stop a cunt with a gun" https://t.co/BvZdpvrEkJ (Sexist)</li>
+			    	<li>@pewdiepie How can someone be such a huge faggot as you? https://t.co/67O9usZYHF (homophobe)</li>
+			    	<li>Everyone take a moment to remember that Islam is a child rape death cult. #BanIslam https://t.co/hXnuHzoxpe (Religion)</li>
+			    	<li>SJW’s are some of the most illogical garbage, and oversensitive people on this planet. I hope they all die slow :’) https://t.co/XG1NG3WngK (OtherHate)</li>
+			    </ul>
+			  </div>
+
+			</div>
+
+
+			<textarea id="post" name="post" rows="5" cols="50"></textarea>
+			
+			<br>
+
+			<button id="check">Check</button>
+
+			<div class="result_row_header">
+					<div class="post_text_header">
+						POST TEXT
+					</div>
+
+					<div class="classification_header">
+						CLASSIFICATION RESULT
+					</div>
+
+					<div class="answer_header">
+						POSSIBLE ANSWER
+					</div>
+				</div>
+			<div id="history" style="height: auto;">
+
+				
+			</div>
+
+		</div>
+
+		
+
+		<script type="text/javascript">
+
+			var classes = {};
+			classes[0] = "Clean post";
+			classes[1] = "Racist post";
+			classes[2] = "Sexist post";
+			classes[3] = "Homophobe post";
+			classes[4] = "Religion post";
+			classes[5] = "Other hate post";
+
+			$(function() {
+	          $('#check').on('click', function(e) {
+
+	          	post_content = $("#post").val();
+	          	if($.trim($("#post").val())){
+		            $.ajax({
+			            type: "POST",
+			            url: '/check_post',
+			            data: {'post': post_content},
+			            success: function(response){
+			            	console.log(response)
+			                post_class = response['classification'];
+			                
+			                if(post_class > 0){
+			                	answer = response['answer'];
+			                	img_path = "{{ url_for('static', filename='wrong.png') }}";
+			                } else {
+			                	answer = "----------------------";
+			                	img_path = "{{ url_for('static', filename='clean.png') }}";
+			                }
+
+			                $("#history").prepend("<div class=\"result_row\"><div class=\"post_text\">"+ post_content +"</div><div class=\"classification\"><img class=\"class_icon\"src=\"" + img_path + "\">"+ classes[post_class] +"</div><div class=\"answer\">"+ answer +"</div></div>");
+			            }
+	        		});
+	        	}
+	            return false;
+	          });
+        });
+		</script>
+		<script src="{{ url_for('static', filename='modal.js') }}"></script>
+
+	</body>
+</html>

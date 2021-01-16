@@ -13,7 +13,7 @@ class AnsweringModule:
 			with open(self.rulesPath) as f:
 				self.rules = json.loads(f.read()) # if success read json
 
-				print(self.rules)
+				#print(self.rules)
 		except IOError: #else give error
 			print("Rules could not be loaded")
 			self.rules = None

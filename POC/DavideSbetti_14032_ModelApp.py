@@ -30,7 +30,7 @@ class ModelApp:
 
 			prediction = np.argmax(self.model.predict(new_x.batch(32)))
 
-			return 0
+			return int(prediction)
 
 		return None
 

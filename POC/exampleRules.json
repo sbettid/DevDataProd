@@ -1,9 +1,6 @@
 {
 	"classification": [
 		{
-			"test" : {
-				"_all" : "Test post"
-			},
 			"_all" : "Not Hate post"
 		},
 		{
