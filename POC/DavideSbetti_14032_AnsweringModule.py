@@ -32,11 +32,13 @@ class AnsweringModule:
 			while answer is None:
 				
 				keyword_found = False
-				
+				#print("Looping, dictionary is:" + str(current_dict))
 				for key in current_dict:
 					if key != "_all" and key in post:
+						#print("Using " + key + " as key")
 						current_dict = current_dict[key]
 						keyword_found = True
+						break
 
 				if not keyword_found:
 					answer = current_dict["_all"]
@@ -46,5 +48,5 @@ class AnsweringModule:
 
 
 #am = AnsweringModule("exampleRules.json")
-#answer = am.answerPost("test post", 0)
+#answer = am.answerPost("fuck you nigger Yeah I did it now martyr me https://t.co/EXLSPeh4wM", 1)
 #print("Answer: ", answer)

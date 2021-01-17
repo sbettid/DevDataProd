@@ -14,7 +14,7 @@ You can then launch the POC using the command:
 
 python DavideSbetti_14032-POC_WebServer.py
 
-The launched module will load the machine learning model (you will probably see some warnings printed by tensorflow if you don't have a dedicated GPU). 
+The launched module will load the machine learning model (you will probably see some warnings printed by tensorflow, please ignore them). 
 
 When the webserver is ready you will see a confirmation message similar to the one reported here below: 
 

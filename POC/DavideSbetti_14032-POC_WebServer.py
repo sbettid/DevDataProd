@@ -14,9 +14,9 @@ def hello():
 @app.route('/check_post', methods=['POST'])
 def check_post():
 	text = request.form["post"]
-	classification = myModel.classifyPost(text)
+	classification = myModel.classifyPost(text.lower())
 	if classification > 0:
-		answer = am.answerPost(text, classification)
+		answer = am.answerPost(text.lower(), classification)
 		return jsonify(classification=classification, answer=answer)
 	else:	
 		return jsonify(classification=classification)

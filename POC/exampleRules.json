@@ -4,19 +4,34 @@
 			"_all" : "Not Hate post"
 		},
 		{
-			"_all" : "Racist post"
+			"nigger" : {
+				"fuck" : {
+					"_all":"Let's be careful of our words. We respect all people here."
+				},
+				"_all" : "Think before you speak.  Whatever you say, you cannot take it back."
+			},
+			"_all" : "test"
 		},
 		{
-			"_all" : "Sexist post"
+			"cunt" : {
+				"_all" : "I do not think that sounds as funny as you want it to sound."
+			},
+			"_all" : "Think before you speak.  Whatever you say, you cannot take it back."
 		},
 		{
-			"_all" : "Homophobe post"
+			"faggot" : {
+				"_all":"Hey man, just remember that there are real people who are hurt when you harass them with that kind of language"
+			},
+			"_all" : "Think before you speak.  Whatever you say, you cannot take it back."
 		},
 		{
-			"_all" : "Religion hate post"
+			"banislam" : {
+				"_all":"Hey man, just remember that there are real people who are hurt when you harass them with that kind of language"
+			},
+			"_all" : "Think before you speak.  Whatever you say, you cannot take it back."
 		},
 		{
-			"_all" : "Other Hate post"
+			"_all" : "Think before you speak.  Whatever you say, you cannot take it back."
 		}
 	]
 }
